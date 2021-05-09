@@ -1,12 +1,11 @@
 # aplotnikov-docker-compose-playground
 playtesting docker-compose
 
-start all with start-all.sh script
+* start all with start-all.sh script
+* stop all with stop-all.sh script
 
-stop all with stop-all.sh script
 
-
-smallest examples contained in /simple folder inside folder
+Note: simplest examples contained in /simple folder inside folder
 
 
 docker-compose in root contains all other services code, but could use extend, but... 
