@@ -1,0 +1,42 @@
+docker commands
+
+NOTES:
+$( %command ) -- this only work in powershell
+docker exec -it -- this might fail in gitbash so also: powershell for windows
+
+
+COMMANDS:
+
+// search for image in connected repo
+docker search mongodb
+
+//stop all containers
+docker stop $(docker ps -a -q)
+
+// remove all containers (requires all containters be stopped first)
+docker rm $(docker ps -a -q)
+
+// remove all images from docker (requires all containers deleted first)
+docker rmi  $(docker images -a -q)
+
+//kill all volumes
+docker volume rm $(docker volume ls -q)
+
+// start docker-compose from specific file
+docker-compose -f %file_name% up
+1) docker-compose -f docker-compose.yml up
+2) docker-compose -f ./mongo/docker-compose.yml up
+
+// execute command INSIDE running container
+docker exec %container_name% %command%
+1) docker exec -it kafka /bin/sh
+
+// logs
+docker-compose logs %container_name%
+1)docker-compose logs redis >> logs.txt
+
+// list volumes
+docker volume ls
+
+
+

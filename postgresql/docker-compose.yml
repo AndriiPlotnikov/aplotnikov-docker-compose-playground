@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    ports:
+          - '5432:5432'
+    environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+    volumes: 
+          - postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+          - ./sql/init.sql:/docker-entrypoint-initdb.d/01_init.sql
+          - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/02_create_tables.sql
+          
+volumes:
+    postgres-data:
